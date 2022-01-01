@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Ссылка на файл CSS для стилизации страницы HTML-->
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+    
+</body>
+</html>
+
+<!--1) Встроенный стиль - Применение стиля через атрибут <style>-->
+    <p style="color:blue; font-size:24px;">Этот текст будет синим.</p>
+    <hr>
+    <br>
+
+
+<!--2) Встроенная таблица - Стиль задается в шапке через Тег <style> применяется только к текущей странице (встроенная таблицы стилей)-->
+<head>
+    <style type="text/css">
+      p {color: crimson;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+<p>этот текст</p>
+<br>
+
+
+<!--3) вНЕШНЯЯ ТАБЛИЦА. Необходимо в файле index.html вставить <link> c ссылкой на файл styles.css (в котором будут задаваться стили для разметки HTML)-->
+<head>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+<!--3.1) Селектор элемента (тега) в стиле CSS-->
+<p>Lorem ipsum dolor sit amet.</p>
+<a href="/">LINK</a>
+
+
+/* Применится ко всем абзацам на странице */
+p {
+  font-size: 24px;
+}
+
+/* Применится ко всем ссылкам на странице */
+a {text-decoration: red;}
+<br>
+
+
+<!--3.3) Селектор класса (.title .text .link) - задает один стиль одному или нескольким элементам (тегам) с одиннаковым именем класса (title.text.link)-->
+<h1 class="title">Привет, я Mango.</h1>
+<p 
+  class="text">Добро пожаловать на мою личную страницу. 
+  Тут можно посмотреть <a class="link" href="">проекты</a>.
+</p>
+
+
+Применится ко всем тегам с классом title */
+.title {
+  font-weight: 500;
+}
+
+/* Применится ко всем тегам с классом text */
+.text {
+  color: brown;
+  font-size: 18px;
+}
+
+/* Применится ко всем тегам с классом link */
+.link {
+  text-decoration: none;
+}
+<br>
+
+
+<!--4) Композиция классов-->
+<element class="value1 value2 value3"></element>
+
+
+<!--5) Композиция классов-применение. Использование нескольких имен классов на примере создания разметки для компонента оповещений-->
+<p class="alert success">Пополнение счёта выполнено</p>
+<p class="alert warning">Внимание, будут изменены тарифы</p>
+<p class="alert error">Ошибка проведения транзакции</p>
+
+<!--Описываем правила в стилях-->
+/* Общие стили для всех типов оповещений */
+.alert {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* Специфические стили для каждого типа */
+.success {
+  color: green;
+}
+
+.warning {
+  color: orange;
+}
+
+.error {
+  color: red;
+}
+
+
+<!--6) Селектор идентификатора (для якорей). Глобальный атрибут id(#)-->
+<h1 id="title">Заголовок страницы</h1>
+
+
+#title {
+    font-weight: 500;
+    color: orange;
+  }
+<br>
+
+
+<!--7) Сулектор потомка - применяет стиль ко всем детям и потомкам элемента-->
+<a href="">Читайте наш блог!</a>
+
+<ul class="social-links">
+  <li>
+    <a href="">Twitter (ребенок)</a>
+    <ul>
+        <li>
+            <a href="/">Потомок</a>
+        </li>
+    </ul>
+  </li>
+  <li>
+    <a href="">Instagram (ребенок)</a>
+  </li>
+  <li>
+    <a href="">Facebook (ребенок)</a>
+  </li>
+</ul>
+
+
+
+/* ❌ Применится ко всем ссылкам в документе */
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+/* ✅ Применится только к ссылкам, которые лежат внутри тега с классом social-links */
+.social-links a {
+  color: blue;
+  text-decoration: none;
+}
+<br>
+
+
+<!--8)Селектор ребенка-->
+<ul class="menu">
+    <li>
+      Комьютеры и комплектующие
+      <ul class="submenu">
+        <li>Процессоры</li>
+        <li>Мониторы</li>
+        <li>Видеокарты</li>
+      </ul>
+    </li>
+    <li>
+      Бытовая техника
+      <ul class="submenu">
+        <li>Холодильники</li>
+        <li>Телевизоры</li>
+        <li>Стиральные машины</li>
+      </ul>
+    </li>
+    <li>
+      Товары для дома
+      <ul class="submenu">
+        <li>Кресла</li>
+        <li>Матрасы</li>
+        <li>Электрокамины</li>
+      </ul>
+    </li>
+  </ul>
+
+/* ✅ То что нужно */
+.menu > li {
+  border: 1px solid tomato;
+}
+
+/* ❌ Не решает задачу */
+.menu li {
+  border: 1px solid tomato;
+}
+
+
+<!--9.1) Селектор атрибута (по атрибуту) - применяет стиль ко всем элементам (ссылкам a href), с указанным атрибутом (title=Справочник тегов)-->
+<a href="https://htmlreference.io" title="Справочник тегов">
+    htmlreference.io
+  </a>
+  <br>
+  
+  <a href="https://cssreference.io" title="Справочник стилей">
+    cssreference.io
+  </a>
+  <br>
+
+  <a href="https://www.youtube.com">YouTube </a>
+
+<!--Выберет все ссылки(a href) с атрибутом (title) и задаст свой стиль-->
+  a[title] {
+    color: red;
+  }
+
+
+
+
+
+<!--9.2) Селектор атрибута (по атрибуту/значению) - применяет стиль к элементам с указанным [атрибутом / значением]-->
+  <a href="https://htmlreference.io" title="Справочник тегов">
+    htmlreference.io
+  </a>
+  <br>
+  
+  <a href="https://cssreference.io" title="Справочник стилей">
+    cssreference.io
+  </a>
+  <br>
+
+
+  /* Непривычное форматирование фигурных скобок это нормально */
+a[href="https://htmlreference.io"]
+{
+  color: teal;
+}
+
+a[href="https://cssreference.io"]
+{
+  color: orange;
+}
+
+a[href="https://www.youtube.com"]
+{
+  color: tomato;
+}
